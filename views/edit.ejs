@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <title>Edit Post</title>
+  <link rel="stylesheet" href="/editStyles.css">
+
+</head>
+<body>
+<div class="left"></div>
+<div class="center">
+
+  <h1>Edit Post</h1>
+
+  <form action="/edit/<%= post.id %>" method="POST">
+    <div class="form-row">
+      <p>Author:</p>
+    </div>
+    <input type="text" name="author" value="<%= post.author %>" required>
+    <div class="form-row">
+      <p>Title:</p>
+    </div>
+      <input type="text" name="title" value="<%= post.title %>" required>
+    <div class="form-row">
+      <p>Content:</p>
+    </div>
+      <textarea name="content" required><%= post.content %></textarea>
+    <button type="submit">Save</button>
+  </form>
+</div>
+<div class="right"></div>
+</body>
+
+</html>
