@@ -1,34 +1,53 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+  <!-- handle screen display for a wider variety of screens -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>My Blog!</title>
+
+  <!-- link to the index style sheet -->
   <link rel="stylesheet" href="/styles.css">
 
 </head>
 <body>
+
+<!-- set left bar for display -->
 <div class="left"></div>
+
+<!-- set center bar for nicer display -->
 <div class="center">
 
   <h1>My Blog!</h1>
 
   <div class="container">
+
     <form action="/create" method="POST">
+
       <div class="form-row">
+
         <input type="text" name="author" placeholder="Name" required>
+
         <input type="text" name="title" placeholder="Title" required>
+
       </div>
-      <textarea name="content" placeholder="Share what you are thinking!" required></textarea>
+
+      <textarea name="text" placeholder="Share what you are thinking!" required></textarea>
+
       <button type="submit">Create Post</button>
+
     </form>
+
   </div>
 
   <hr>
-
+  <!-- check for if posts are present -->
   <% if (posts.length === 0) { %>
 
     <p>No posts yet. Be the first!</p>
 
+    <!-- otherwise assume posts are pressent -->
   <% } else { %>
     <h2>See what's new!:</h2>
 
@@ -36,13 +55,13 @@
       <div class="post">
 
         <h2><%= post.title %></h2>
-        <p><%= post.content %></p>
+        <p><%= post.text %></p>
 
         <small><em>By <%= post.author %> on <%= post.date.toLocaleString() %> </em></small>
-        <form action="/delete/<%= post.id %>" method="POST" style="display:inline;">
+        <form action="/deletePost/<%= post.id %>" method="POST" style="display:inline;">
           <button type="submit">Delete</button>
         </form>
-        <form action="/edit/<%= post.id %>" method="GET" style="display:inline;">
+        <form action="/editPost/<%= post.id %>" method="GET" style="display:inline;">
           <button type="submit">Edit</button>
         </form>
       </div>
@@ -51,6 +70,8 @@
 
   <% } %>
 </div>
+
+<!-- set right bar for display -->
 <div class="right"></div>
 </body>
 

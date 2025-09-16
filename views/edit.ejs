@@ -8,28 +8,50 @@
 
 </head>
 <body>
+
+  <!-- set left bar for display -->
 <div class="left"></div>
+
+<!-- set center bar for nic display -->
 <div class="center">
 
   <h1>Edit Post</h1>
 
-  <form action="/edit/<%= post.id %>" method="POST">
+  <!-- make post request for eddited text in all fields -->
+  <form action="/editPost/<%= post.id %>" method="POST">
     <div class="form-row">
+
       <p>Author:</p>
+
     </div>
+
     <input type="text" name="author" value="<%= post.author %>" required>
+
     <div class="form-row">
+
       <p>Title:</p>
+
     </div>
+
       <input type="text" name="title" value="<%= post.title %>" required>
+
     <div class="form-row">
-      <p>Content:</p>
+
+      <p>Post:</p>
+
     </div>
-      <textarea name="content" required><%= post.content %></textarea>
+
+      <textarea name="text" required><%= post.text %></textarea>
+
     <button type="submit">Save</button>
+
   </form>
+
 </div>
+
+<!-- set right bar for proper display -->
 <div class="right"></div>
+
 </body>
 
 </html>
